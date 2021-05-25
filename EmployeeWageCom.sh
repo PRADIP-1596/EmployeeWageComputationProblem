@@ -3,18 +3,23 @@ echo "Welcome to employee computation program::"
 partTime=1
 fullTime=2
 empRatePerHr=20
+totalSalary=0
 empCheck=$((RANDOM%3))
+numWorkingDays=20
+for (( day=1; day<=$numWorkingDays; day++ ))
+do
+	case $empCheck in
+		$partTime)
+			empHr=4
+			;;
+		$fullTime)
+			empHr=8
+			;;
+		*)
+			empHr=0
+			;;
+	esac
 
-case $empCheck in
-	$partTime)
-		empHr=4
-		;;
-	$fullTime)
-		empHr=8
-		;;
-	*)
-		empHr=0
-		;;
-esac
-
-salary=$(( $empHr*$empRatePerHr ))
+	salary=$(( $empHr*$empRatePerHr ))
+	totalSalary=$(( $numWorkingDays*$salary ))
+done
