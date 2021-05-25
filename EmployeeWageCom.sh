@@ -2,13 +2,19 @@
 echo "Welcome to employee computation program::"
 partTime=1
 fullTime=2
-randomCheck=$((RANDOM%3))
-if [ $randomCheck -eq $partTime ]
-then
-	empHr=4
-elif [ $randomCheck -eq $fullTime ]
-then
-	empHr=8
-else
-	salary=0
-fi
+empRatePerHr=20
+empCheck=$((RANDOM%3))
+
+case $empCheck in
+	$partTime)
+		empHr=4
+		;;
+	$fullTime)
+		empHr=8
+		;;
+	*)
+		empHr=0
+		;;
+esac
+
+salary=$(( $empHr*$empRatePerHr ))
