@@ -1,12 +1,14 @@
 #!/bin/bash -x
 echo "Welcome to employee computation program::"
-isPresent=1
-randomCheck=$((RANDOM%2))
-if [ $randomCheck -eq $isPresent ]
+partTime=1
+fullTime=2
+randomCheck=$((RANDOM%3))
+if [ $randomCheck -eq $partTime ]
 then
-	empRatePerHr=20
+	empHr=4
+elif [ $randomCheck -eq $fullTime ]
+then
 	empHr=8
-	salary=$(( $empRatePerHr * $empHr))
 else
 	salary=0
 fi
